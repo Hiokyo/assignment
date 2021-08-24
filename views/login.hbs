@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+    <h1 class="redText">Login</h1>
+    <form action="/doLogin" method="post">
+        Name <input type="text" name="txtName"/>
+        <br>
+        Password <input type="password" name="txtPassword">
+        <br>
+        <input type="submit" value="Login">
+    </form>
+    <hr>
+    <h2>Register</h2>
+    <form action="/register" method="post">
+        Name <input type="text" name="txtName"/>
+        <br>
+        Password <input type="password" name="txtPassword">
+        <br>
+        <select name="role">
+            <option value="admin">Admin</option>
+            <option value="customer">Customer</option>
+        </select>
+        <br>
+        <input type="submit" value="Register"/>
+    </form>
+</body>
+</html>

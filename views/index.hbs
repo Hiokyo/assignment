@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <h1>ATN shop management</h1>
+    <h2>{{auth.name}} and {{auth.role}}</h2>
+
+    <form action="/search" method="post">
+        <input type="text" name="txtSearch">
+        <input type="submit" value="Search">
+    </form>
+    <form action="/insert" method="post">
+        Product Name <input type="text" name="txtName">
+        <span style="color:red">{{errorMsg}}</span> 
+        <br>
+        Price <input type="text" name="txtPrice">
+        <br>
+        Picture <input type="text" name="txtPicture"/>
+        <br>
+        <input type="submit" value="Insert Product">
+    </form>
+    <ul>
+        {{#each data}}
+           <li>{{name}} - {{price}}
+               <img src="{{picture}}" width="150" height="100"/>
+               <a href="/delete?id={{_id}}">Delete</a>
+               <a href="/edit?id={{_id}}">Edit</a>
+            </li> 
+        {{/each}} 
+    </ul>
+    
+</body>
+</html>
