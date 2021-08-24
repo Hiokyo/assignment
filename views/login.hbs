@@ -5,30 +5,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="mystyle.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .login {
+            width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+        .login > h1, .login > h2 {
+            text-align: center;
+        }
+
+
+    </style>
+
 </head>
 <body>
-    <h1 class="redText">Login</h1>
-    <form action="/doLogin" method="post">
-        Name <input type="text" name="txtName"/>
-        <br>
-        Password <input type="password" name="txtPassword">
-        <br>
-        <input type="submit" value="Login">
-    </form>
-    <hr>
-    <h2>Register</h2>
-    <form action="/register" method="post">
-        Name <input type="text" name="txtName"/>
-        <br>
-        Password <input type="password" name="txtPassword">
-        <br>
+    <div class="login">
+
+        <h1 class="redText">Login</h1>
+
+        <form action="/doLogin" method="post">
+        <div class="form-group">
+            <label for="txtName">Name: </label>
+            <input class="form-control" type="text" name="txtName"/>
+        </div>
+            <div class="form-group">
+            <label for="txtPassword">Password: </label>
+            <input class="form-control" type="password" name="txtPassword">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Login">
+        </form>
+
+        <hr>
+        <h2>Register</h2>
+
+        <form action="/register" method="post">
+        <div class="form-group">
+            <label for="txtName">Name: </label>
+            <input class="form-control" type="text" name="txtName"/>
+        </div>
+        <div class="form-group">
+            <label for="txtPassword">Password: </label>
+            <input class="form-control" type="password" name="txtPassword">
+        </div>
         <select name="role">
             <option value="admin">Admin</option>
             <option value="customer">Customer</option>
         </select>
         <br>
-        <input type="submit" value="Register"/>
-    </form>
+        <br>
+        <input class="btn btn-primary" type="submit" value="Register"/>
+        </form>
+
+    </div>
 </body>
 </html>

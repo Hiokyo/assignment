@@ -5,34 +5,96 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .main {
+            border: 1px solid black;
+            width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1,h2 {
+            text-align: center;
+        }
+
+        .list > li {
+            list-style: none;
+        }
+
+        .list > li > a {
+            text-decoration: none;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button {
+            display: flex;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>ATN shop management</h1>
-    <h2>{{auth.name}} and {{auth.role}}</h2>
+    <div class="main">
+        <h1>ATN shop management</h1>
+        <h2>{{auth.name}} and {{auth.role}}</h2>
 
-    <form action="/search" method="post">
-        <input type="text" name="txtSearch">
-        <input type="submit" value="Search">
-    </form>
-    <form action="/insert" method="post">
-        Product Name <input type="text" name="txtName">
-        <span style="color:red">{{errorMsg}}</span> 
+        <form action="/search" method="post">
+            <div class="input-group">
+                <input class="form-control" type="text" name="txtSearch">
+                <div class="input-group-append">
+                    <input class="btn btn-primary" type="submit" value="Search">
+                </div>
+            </div>
+        </form>
         <br>
-        Price <input type="text" name="txtPrice">
-        <br>
-        Picture <input type="text" name="txtPicture"/>
-        <br>
-        <input type="submit" value="Insert Product">
-    </form>
-    <ul>
-        {{#each data}}
-           <li>{{name}} - {{price}}
-               <img src="{{picture}}" width="150" height="100"/>
-               <a href="/delete?id={{_id}}">Delete</a>
-               <a href="/edit?id={{_id}}">Edit</a>
+        <form action="/insert" method="post">
+            <div class="form-group">
+                <label for="txtName">Product Name: </label>
+                <input class="form-control" type="text" name="txtName">
+                <span style="color:red">{{errorMsg}}</span> 
+                <br>
+                <label for="txtName">Price: </label>
+                <input class="form-control" type="text" name="txtPrice">
+                <br>
+                <label for="txtName">Picture: </label>
+                <input class="form-control" type="text" name="txtPicture"/>
+                <br>
+                <input class="btn btn-success" type="submit" value="Insert Product">
+            </div>
+        </form>
+        <ul class="list">
+            {{#each data}}
+            <li>
+                <div class="item">
+                    <div>
+                        <p class="mr-2">
+                            {{name}} - {{price}}
+                        </p>
+                        <img src="{{picture}}" width="150" height="100"/>
+                    </div>
+                    <div class="button">
+                        <a class="btn btn-danger mr-2" href="/delete?id={{_id}}">Delete</a>
+                        <a class="btn btn-warning" href="/edit?id={{_id}}">Edit</a>
+                    </div>
+                </div>
+                <br>
             </li> 
-        {{/each}} 
-    </ul>
+            {{/each}} 
+        </ul>
+    </div>
     
 </body>
 </html>

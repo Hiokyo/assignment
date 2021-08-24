@@ -32,7 +32,6 @@ app.get('/login',(req,res)=>{
 app.post('/doLogin',async (req,res)=>{
     const name = req.body.txtName;
     const pass = req.body.txtPassword;
-    console.log(name)
     //get role from database: could be "-1", admin, customer
     var role = await getRole(name,pass);
     if(role != "-1"){
@@ -85,7 +84,7 @@ app.post('/search', async (req, res) => {
     const dbo = await getDB()
     const allProducts = await dbo.collection("product").find({ name: searchInput }).toArray();
 
-    res.render('index', { data: allProduct })
+    res.render('index', { data: allProducts })
 })
 
 app.get('/', checkLogin, async (req, res) => {

@@ -5,16 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit product</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .edit {
+            width: 500px;
+            margin: auto;
+            border: 1px solid black;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h2>Edit product</h2>
-    <form action="/update" method="post">
-        <input type="hidden" name="txtId" value="{{student._id}}">
-         Name <input type="text" name="txtName" value="{{product.name}}">
-        <br>
-        Price <input type="text" name="txtPrice" value="{{product.price}}">
-        <br>
-        <input type="submit" value="Update Product">
-    </form>
+    <div class="edit">
+        <h2>Edit product</h2>
+        <form action="/update" method="post">
+            <input type="hidden" name="txtId" value="{{product._id}}">
+            <label for="txtName">Name: </label>
+            <input class="form-control" type="text" name="txtName" value="{{product.name}}">
+            <br>
+            <label for="txtName">Price: </label>
+            <input class="form-control" type="text" name="txtPrice" value="{{product.price}}">
+            <br>
+            <input class="btn btn-success" type="submit" value="Update Product">
+        </form>
+
+    </div>
 </body>
 </html>
