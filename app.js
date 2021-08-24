@@ -32,6 +32,7 @@ app.get('/login',(req,res)=>{
 app.post('/doLogin',async (req,res)=>{
     const name = req.body.txtName;
     const pass = req.body.txtPassword;
+
     //get role from database: could be "-1", admin, customer
     var role = await getRole(name,pass);
     if(role != "-1"){
@@ -63,7 +64,7 @@ app.post('/insert', async (req, res) => {
     const priceInput = req.body.txtPrice;
     const pictureInput = req.body.txtPicture;
     if(nameInput.length <4){
-        res.render("index",{errorMsg:'Ten nho hon 4 ky tu'})
+        res.render("index",{errorMsg:'Name must be longer than 4 characters'})
         return;
     }
 
@@ -107,4 +108,4 @@ function checkLogin(req,res,next){
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT)
-console.log("app is running ", PORT)
+console.log("App is running in", PORT)
