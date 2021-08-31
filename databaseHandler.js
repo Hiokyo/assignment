@@ -1,5 +1,7 @@
 const { constants } = require('buffer');
+const { Console } = require('console');
 const {ObjectId,MongoClient} = require('mongodb');
+const { CLIENT_RENEG_LIMIT } = require('tls');
 const url = 'mongodb+srv://TrungHieu:Hiokyo230596@asm2.wknny.mongodb.net/Asm2?retryWrites=true&w=majority';
 const DATABASE_NAME = "ATNdb"
 

@@ -1,6 +1,7 @@
 const express = require('express')
 const session = require('express-session');
 
+
 const app = express()
 
 const { insertProduct, updateProduct, getProductById, deleteProduct
@@ -67,7 +68,6 @@ app.post('/insert', async (req, res) => {
         res.render("index",{errorMsg:'Name must be longer than 4 characters'})
         return;
     }
-
     const newProduct = { name: nameInput, price: priceInput, picture: pictureInput }
 
     insertProduct(newProduct);
@@ -83,7 +83,7 @@ app.get('/delete', async (req, res) => {
 app.post('/search', async (req, res) => {
     const searchInput = req.body.txtSearch;
     const dbo = await getDB()
-    const allProducts = await dbo.collection("product").find({ name: searchInput }).toArray();
+    const allProducts = await dbo.collection("product").find({ name: searchInput}).toArray();
 
     res.render('index', { data: allProducts })
 })

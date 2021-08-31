@@ -10,9 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "alert": "^5.0.10",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "hbs": "^4.1.2",
-    "mongodb": "^4.1.0"
+    "mongodb": "^4.1.0",
+    "popup": "0.0.3",
+    "popups": "^1.1.3"
   }
 }
