@@ -64,7 +64,7 @@ app.post('/insert', async (req, res) => {
     const nameInput = req.body.txtName;
     const priceInput = req.body.txtPrice;
     const pictureInput = req.body.txtPicture;
-    if(nameInput.length <4){
+    if(nameInput.length < 4){
         res.render("index",{errorMsg:'Name must be longer than 4 characters'})
         return;
     }
@@ -92,10 +92,6 @@ app.get('/', checkLogin, async (req, res) => {
     const dbo = await getDB();
     const allProducts = await dbo.collection("product").find({}).toArray();
     res.render('index', { data: allProducts, auth :req.session["User"] })
-})
-
-app.get('/noLogin',checkLogin,(req,res)=>{
-    res.render('noLogin')
 })
 
 function checkLogin(req,res,next){
